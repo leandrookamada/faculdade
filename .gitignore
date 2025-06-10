@@ -1,2 +1,1 @@
-echo "*.exe" > .gitignore
-echo ".vscode/" >> .gitignore
+.exe
