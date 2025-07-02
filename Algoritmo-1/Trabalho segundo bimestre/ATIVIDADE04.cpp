@@ -13,7 +13,7 @@ void verificaMenorNota(int NOTAS[10][3], int local[3]){
     //FOR RESPONSÁVEL POR PASSAR POR CADA ALUNO
     for(int i = 0; i < 10; i++){ 
         // AQUI EU ESTOU DIZENDO QUE A MENOR NOTA DE CADA ALUNO SEMPRE VAI SER A DA PRIMEIRA PROVA, CASO TENHA OUTRA MELHOR, A VARIÁVEL "menor" VAI RECEBER O VALOR DELA.
-        int menor = NOTAS[i][0];
+        int menor = 0;
             // FOR RESPONSÁVEL POR PASSAR POR CADA PROVA DO ALUNO "i"
             for(int j = 0; j < 3; j++){
                 //CASO A NOTA DA PROVA DO ALUNO FOR MENOR QUE A DA PRIMEIRA PROVA, VOU SALVAR O INDICE("j") NA VARIÁVEL "indicemenor", 
@@ -32,12 +32,12 @@ void verificaMenorNota(int NOTAS[10][3], int local[3]){
 int main(){
     int local[3];
     int NOTAS[10][3] = {
-        {7, 5, 9},
-        {8, 6, 7},
-        {6, 6, 8},
-        {9, 7, 5},
-        {5, 8, 6},
-        {7, 9, 7},
+        {7, 5, 9}, //2
+        {8, 6, 7}, //2
+        {6, 6, 8}, //2
+        {9, 7, 5}, //3
+        {5, 8, 6}, //1
+        {7, 9, 7}, //
         {6, 5, 5},
         {8, 8, 7},
         {7, 6, 9},
