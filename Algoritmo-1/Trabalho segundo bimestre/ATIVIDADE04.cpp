@@ -13,12 +13,12 @@ void verificaMenorNota(int NOTAS[10][3], int local[3]){
     //FOR RESPONSÁVEL POR PASSAR POR CADA ALUNO
     for(int i = 0; i < 10; i++){ 
         // AQUI EU ESTOU DIZENDO QUE A MENOR NOTA DE CADA ALUNO SEMPRE VAI SER A DA PRIMEIRA PROVA, CASO TENHA OUTRA MELHOR, A VARIÁVEL "menor" VAI RECEBER O VALOR DELA.
-        int menor = 0;
+        int menor = NOTAS[i][0];
             // FOR RESPONSÁVEL POR PASSAR POR CADA PROVA DO ALUNO "i"
             for(int j = 0; j < 3; j++){
                 //CASO A NOTA DA PROVA DO ALUNO FOR MENOR QUE A DA PRIMEIRA PROVA, VOU SALVAR O INDICE("j") NA VARIÁVEL "indicemenor", 
                 //CASO DE FATO A MENOR NOTA SEJA NO INDICE 0, O VALOR DA VARIÁVEL JÁ VALE ZERO, POR ISSO NÃO DÁ ERRO
-                if(menor < NOTAS[i][j]){                                                                          
+                if( NOTAS[i][j] < menor || NOTAS[i][j] == menor){                                                                          
                     menor = NOTAS[i][j];
                     indicedemenor = j;
                 }
@@ -31,25 +31,13 @@ void verificaMenorNota(int NOTAS[10][3], int local[3]){
     }
 int main(){
     int local[3];
-    int NOTAS[10][3] = {
-        {7, 5, 9}, //2
-        {8, 6, 7}, //2
-        {6, 6, 8}, //2
-        {9, 7, 5}, //3
-        {5, 8, 6}, //1
-        {7, 9, 7}, //
-        {6, 5, 5},
-        {8, 8, 7},
-        {7, 6, 9},
-        {6, 7, 6}
-    };
-    // int NOTAS[10][3];
-    // for(int i =0; i < 10; i++){
-    //     for(int j = 0; j < 3; j++){
-    //         printf("Por favor, insira a nota da %d° prova do %d° aluno: ", j+1, i+1);
-    //         scanf("%d", &NOTAS[i][j]);
-    //     }
-    // }
+    int NOTAS[10][3];
+    for(int i =0; i < 10; i++){
+        for(int j = 0; j < 3; j++){
+            printf("Por favor, insira a nota da %d° prova do %d° aluno: ", j+1, i+1);
+            scanf("%d", &NOTAS[i][j]);
+        }
+    }
 
     //AQUI EU ESTOU CHAMANDO A FUNÇÃO, ELA VAI PERCORRER TODAS AS NOTAS E SALVAR DAR OS VALORES PARA OS MEUS PARÂMETROS
     //COMO EU DISSE QUE O PRIMEIRO PARÂMETRO É O "NOTAS", QUE CORRESPONDE AS PROVAS DE CADA INDIVÍDUO, E DISSE QUE O SEGUNDO PARÂMETRO É O "local"
