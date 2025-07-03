@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 
+// ESSA FUNÇÃO VAI VERIFICAR A OPERAÇÃO QUE O USUÁRIO QUER E RETORNA A OPERAÇÃO
 int calculadora(char resultado, int num1, int num2){
     switch (resultado)
     {
@@ -38,6 +39,7 @@ int main(){
     printf("Por favor, o tipo de operação que você deseja realizar(+, -, *, /): ");
     scanf(" %c", &resultado);
 
+    //AQUI EU ESTOU SALVANDO O VALOR RESULTADO
     R = calculadora(resultado, num1, num2);
     
     printf("O resultado da operação escolhida é: %d", R);
