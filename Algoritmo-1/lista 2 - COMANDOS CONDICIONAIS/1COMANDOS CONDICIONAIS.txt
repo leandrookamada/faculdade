@@ -1,0 +1,87 @@
+                                        COMANDOS CONDICIONAIS
+-> Na programação, comandos condicionais são estruturas fundamentais que condicionam uma ações e respostas: 
+        TIPOS DE COMANDOS DE CONDIÇÕES;
+        ->if
+    if (condição){
+        // bloco de códigos que será executado se, e apenas se, a condição for verdadeira.
+    }
+O comando "if" funciona como um verdadeiro ou falso, "se" isso for verdade, faça isso, 
+"se" não for verdade isso não sera executado, e o programador pode criar uma ação para caso o "se", for falso.
+
+exemplo:    int idade = 20
+            if (idade >= 18){
+                printf ("Essa pessoa é maior de idade.");
+              }
+        
+        ->if - else 
+    if (condição){
+        // bloco de códigos para caso a condição seja verdadeira(true)
+    }
+    else {
+        // Bloco de códigos caso o "if" de cima seja falso (false)
+    }
+Assim como o if, o if-else avalia se a condição é verdadeira (true) ou é falsa (false). Caso a condição seja falsa, 
+o bloco de códigos dentro do else será executado. O else nada mais é que um caminho alternativo para que caso o "if" 
+seja falso.
+
+exemplo:    int numero = 7;
+            if (numero > 9){
+                printf("\nO Número está na casa da dezena.");
+            }
+            else {
+                printf("\n O número está na casa da unidade.");
+            }
+        
+        ->if-else if-else 
+        if(condição 1){
+            // Bloco de códigos que será executado se a condição 1 for verdadeira (true)
+        }
+        else if(condição 2){
+            // Bloco de códigos que será executado se a condição de cima for falsa e essa verdadeira
+        }
+        else if(condição 3){
+            // Bloco de códigos que será executado se a consição de cima seja falta e essa verdadeira
+        }
+        else {
+            // Bloco de códigos que será execultado caso todas as opções sejam falsas.
+        }
+O comando condicionante if-else if-else permite a avaliação de multiplas condições de forma consecutiva. As condições 
+são lidas de cima para baixo, de forma consecutiva, confome a anterior é avaliada e constatada como falsa (false).
+
+        ->Switch-case
+        switch(expressão){
+            case Valor 1':
+                // bloco de códigos a exercultar caso a expressão == Valor 1
+            break;
+            case Valor 2:
+                // Bloco de códigos a execultar caso espressão == Valor 2
+            break;
+            case Valor 3:
+                // Bloco de códigos a execuktar caso expressão == Valor 3
+            break;
+            default:
+                // Bloco de códigos a execultar caso a expressão não corresponder a nenhum dos casos
+            break;
+        }
+O comando switch avalia o valor de uma expressão ( normalmente uma variável inteira ou um caracter), em seguida ele 
+compara, de forma consecutiva, com cada um dos valores dentro dos casos. Se algum desse valores bater com a variavel, 
+o bloco de código, dentro da case, é execultado.
+O comando break é fundamental, ele faz com que a execulção saia imediatamente do bloco. Caso ele seja omitido, 
+a execulção cairá para o próximo bloco, mesmo que ele seja falso.
+o comando default é totalmente opicional, e só será execultado caso nenhuma das case's seja verdadeira.
+
+exemplo:    char conceito = 'C';
+            switch (conceito){
+                case 'A':
+                    printf("Fenomenal");
+                    break;
+                case 'B':
+                    printf("Exelente!!");
+                    break;
+                case 'C':
+                    printf("Bom.");
+                    break;
+                default:
+                    printf("Infelizmente você foi reprovado...");
+                    break;
+            }
