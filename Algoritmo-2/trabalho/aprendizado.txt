@@ -1,9 +1,0 @@
-
--> FUNÇÃO PARA SALVAR STRING
-==> fgets : Está função tem como objetivo ler os valores inseridos pelo teclado e salva-los. A primeira vez que eu usei foi:
-fdets(u->nome,50,stdin)
-
-nesse momento eu estou falando que:
--eu vou pegar o que o usuário colocou no struct "u", na variável "nome";
--50 vai dizer sobre o tamanho do array;
--stdin representa a entrada do dado.

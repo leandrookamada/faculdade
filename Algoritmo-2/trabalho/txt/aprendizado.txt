@@ -1,0 +1,15 @@
+
+-> FUNÇÃO PARA SALVAR STRING
+==> fgets : Está função tem como objetivo ler os valores inseridos pelo teclado e salva-los. A primeira vez que eu usei foi:
+fdets(u->nome,50,stdin)
+
+nesse momento eu estou falando que:
+-eu vou pegar o que o usuário colocou no struct "u", na variável "nome";
+-50 vai dizer sobre o tamanho do array;
+-stdin representa a entrada do dado.
+
+
+-> DECLARAÇÃO ANTECIPADA DE FUNÇÃO (forward declaration)
+==> Aqui eu estou dizendo ao compilador que existe uma função que vira com esse nome e esses parâmetros. Isso vai servir pois, como o compilador vai ler o código 
+de cima para baixo, ele pode acabar lendo uma função x, que dentro dela vai usar uma função y, porém essa função y ainda não foi definida até a linha que o compilador está.
+A declaração antecipada é para resolver esse tipo de problema
