@@ -3,8 +3,13 @@
 #include"dados.h"
 
 void verificar_valor(struct usuarios ListaDeUsuarios[]){
-    printf("Perfeito, vamos vericar todos os valores que já entraram.\n");
-    printf("OBS: Vale lembrar que cada jogo feito vale a bagatela de R$1.000, ou seja: \n O valor arrecadado é a somatória de todos os jogos.\n");
+    printf("\n========================================================\n");
+    printf("|                VERIFICAR VALOR ARRECADADO            |\n");
+    printf("========================================================\n");
+
+    printf("\n  | OBS: Cada jogo cadastrado vale R$ 1.000,00.          |\n");
+    printf("  | O valor total é a soma de todos os jogos ja feitos. |\n");
+    printf("  |-----------------------------------------------------|\n");
 
     int contador = 0;
 
@@ -14,5 +19,11 @@ void verificar_valor(struct usuarios ListaDeUsuarios[]){
         }
     }
     int total = 1000*contador;
-    printf("\nAté o momento, temos o montante de %d", total);
+    if(contador > 0){
+        printf("\n  - Total de jogos cadastrados: %d\n", contador);
+        printf("  - O montante total arrecadado é: R$ %d,00\n", total);
+    } else{
+        printf("\n  - Nenhum jogo foi cadastrado ainda. O montante total é R$ 0,00\n");
+    }
+    printf("\n========================================================\n");
 }

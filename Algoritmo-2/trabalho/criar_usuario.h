@@ -9,13 +9,16 @@
 void criar_novo_usuario(struct usuarios *u){
 
 
-        printf("Insira o nome do seu usuário: \n" );
+        printf("========================================\n");
+        printf("        CADASTRO DE NOVO USUARIO        \n");
+        printf("========================================\n\n");
+        printf("   >> Insira o nome do seu usuario: ");
         fgets(u->nome, 50, stdin);
         // removendo o "\n" para não ter erro
         u->nome[strcspn(u->nome, "\n")] = 0;
 
 
-        printf("Por favor, insira o seu CPF: ");
+        printf("   >> Por favor, insira o seu CPF: ");
         fgets(u->cpf, 12, stdin);
 
         // removendo o "\n" para não ter outros erros:
@@ -35,15 +38,18 @@ void cadastra_novo_usuario(struct usuarios ListaDeUsuarios[]){
     }
 
     if(i < MAXIMO_DE_USUARIOS){
-        printf("Perfeito!! Vamos cadastrar um novo usuário na posição %dº \n ", i);
+        printf("======================================================================\n");
+        printf("   Perfeito!! Vamos cadastrar um novo usuario na posicao %d.\n", i + 1);
+         printf("=====================================================================\n\n");
         criar_novo_usuario(&ListaDeUsuarios[i]);
         ListaDeUsuarios[i].existente = 1;
 
-        // ADICIONE ESTA LINHA DE DEBUG AQUI
-        printf("\n[DEBUG] DADOS SALVOS: NOME='<%s>', CPF='<%s>'\n\n", ListaDeUsuarios[i].nome, ListaDeUsuarios[i].cpf);
 
     } else {
-        printf("Infelizmente o número máximo de usuários já está completo... \n Aconselho a iniciar o jogo.");
+        printf("\n========================================\n");
+        printf("  | Limite de usuarios atingido. | \n");
+        printf("  |  Aconselho a iniciar o jogo. |\n");
+        printf("========================================\n\n");
     }
     
 }
