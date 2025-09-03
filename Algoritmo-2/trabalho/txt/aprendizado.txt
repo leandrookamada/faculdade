@@ -8,6 +8,17 @@ nesse momento eu estou falando que:
 -50 vai dizer sobre o tamanho do array;
 -stdin representa a entrada do dado.
 
+OBS!!
+ Em alguns casos, como essa função lê o que vem do teclado, é possível que aconteça alguns erros, como por exemplo se ela vier depois de um scanf. se isso acontecer 
+ é necessário limpar o buffer, como isso é feito? 
+ int c;
+ while((c = getchar()) != '\n' && c != EOF)
+
+    while   ===   aqui eu estou fazendo um loop que vai rodar enquanto as condições que eu der forem verdadeiras, ou seja, o ultimo caracter não pode ser um '\n' e o 
+                    usuario não pode ter encerrado o arquivo (EOF, ou End of File)
+    c = getchar()   ====   aqui eu estou atribuindo c a função getchar, que vai atribuir o último caracter lido
+    != '\n'   ===   aqui eu estou verificando se o ultimo caracter lido não é uma quebra de linha
+
 
 -> DECLARAÇÃO ANTECIPADA DE FUNÇÃO (forward declaration)
 ==> Aqui eu estou dizendo ao compilador que existe uma função que vira com esse nome e esses parâmetros. Isso vai servir pois, como o compilador vai ler o código 
