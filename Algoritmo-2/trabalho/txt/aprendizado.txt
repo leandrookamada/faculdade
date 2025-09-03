@@ -24,3 +24,24 @@ OBS!!
 ==> Aqui eu estou dizendo ao compilador que existe uma função que vira com esse nome e esses parâmetros. Isso vai servir pois, como o compilador vai ler o código 
 de cima para baixo, ele pode acabar lendo uma função x, que dentro dela vai usar uma função y, porém essa função y ainda não foi definida até a linha que o compilador está.
 A declaração antecipada é para resolver esse tipo de problema
+
+
+=> O LIMITE PARA INT É DOIS BILHÕES... 
+Infelizmente aprendi isso da pior forma, estava usando o cpf como um int, porem ele correponderia a um número com dez milhões, e por isso eu precisei usar o long long... 
+
+long long int === é usado quando você sabe que um número vai passar dos dois bilhoes do int. Ele pode guardar até nove quintilhoes (não tenho ideia do quanto isso significa... )
+
+-> Na verdade, eu nem fiz dessa forma, no final das contas fiz usando char mesmo, fica melhor e me possibilita criar algum tipo de validação.
+
+
+
+=> STRCMP (comparar string):
+ Depois que eu mudei o tipo da variável cpf eu tive dificuldade de validar ela, pois eu estava fazendo algo como:
+(string1 == string2).
+porém isso não estava funcionando. Verifiquei que para comparar string eu deveria usar a função strcmp, da seguinte forma:
+strcmp(string1, string2)
+
+
+=> REMOÇÃO DO "\n" PARA NÃO TER PROBLEMAS DE VERIFICAÇÃO
+Precisei adotar uma "função", para não ter problemas com o fgets. quando você aperta o enter depois do fgets ele cria algo como uma linha em branco, e isso me prejudicou 
+quando eu estava fazendo a verificação do cpf para fazer novos jogos, verificar jogos, etc...

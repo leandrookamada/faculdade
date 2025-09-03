@@ -2,6 +2,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 #include"dados.h"
 
 
@@ -10,13 +11,15 @@ void criar_novo_usuario(struct usuarios *u){
 
         printf("Insira o nome do seu usuário: \n" );
         fgets(u->nome, 50, stdin);
+        // removendo o "\n" para não ter erro
+        u->nome[strcspn(u->nome, "\n")] = 0;
 
-        //LIMPEZA DO BUFFER
-        int c;
-        while((c = getchar()) != '\n' && c != EOF);
 
         printf("Por favor, insira o seu CPF: ");
-        scanf("%d", &u->cpf);
+        fgets(u->cpf, 12, stdin);
+
+        // removendo o "\n" para não ter outros erros:
+        u->cpf[strcspn(u->cpf, "\n")] = 0;
         
 
 }
@@ -32,9 +35,13 @@ void cadastra_novo_usuario(struct usuarios ListaDeUsuarios[]){
     }
 
     if(i < MAXIMO_DE_USUARIOS){
-        printf("Perfeito!! Vamos cadastrar um novo usuário na posição %dº", i+1);
+        printf("Perfeito!! Vamos cadastrar um novo usuário na posição %dº \n ", i);
         criar_novo_usuario(&ListaDeUsuarios[i]);
         ListaDeUsuarios[i].existente = 1;
+
+        // ADICIONE ESTA LINHA DE DEBUG AQUI
+        printf("\n[DEBUG] DADOS SALVOS: NOME='<%s>', CPF='<%s>'\n\n", ListaDeUsuarios[i].nome, ListaDeUsuarios[i].cpf);
+
     } else {
         printf("Infelizmente o número máximo de usuários já está completo... \n Aconselho a iniciar o jogo.");
     }

@@ -9,9 +9,12 @@
 
 struct usuarios{
     char nome[50];
-    int cpf;
+    char cpf[12];
     int jogo[4][16];
     int existente;
+
+    // Eu precisei criar uma variável de quantidade para saber quantos foram feitos, e calcular depois 
+    int quantidade;
 };
 
 

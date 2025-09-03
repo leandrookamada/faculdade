@@ -4,25 +4,16 @@
 
 #include"dados.h"
 #include"criar_usuario.h"
+#include"fazer_novo_jogo.h"
+#include"verificar_jogos.h"
+#include"verificar_valor.h"
 
 // PROTÓTIPOS: Aqui eu estou fazendo uma declaração antecipada ao compilador sobre as próximas funçãos, que ainda não foram definidas, mas serão
-void fazer_novo_jogo();
-void verificar_jogos();
-void verificar_valor();
 void entender_como_funciona();
 void sortear_jogo();
 void menu();
 void direcionamento_de_menu(struct usuarios usuario[]);
 
-struct usuarios{
-    // STRUCT PARA USUÁRIOS
-    // O struct é um tipo de "estrutura", uma forma de armazenar diferentes tipos de dados.
-    char nome[50];
-    int cpf;
-    // Aqui, a ideia é que ele possa fazer até 8 jogos, que seriam as linhas, e pode marcar até 15 números, que seria as colunas.
-    int jogo[8][15];
-    int existente; // Aqui a minha ideia é verificar se o usuário já existe, isso serve para a criação de novos usuários
-};
 
 // FUNÇÃO DE MENU: Está função vai ser responsável por delimitar, e facilitar tudo o que o usuário vai fazer e redirecionar ele para o que ele quiser
 void menu(){
@@ -37,28 +28,6 @@ void menu(){
     printf("| 6- Entender como funciona o jogo     |\n");
     printf("----------------------------------------\n");    
 }
-void fazer_novo_jogo(){
-    printf("Que bom que você deseja fazer um jogo!!");
-    
-    return;
-}
-void verificar_jogos(){
-    printf(" Função de Verificar jogos em desenvolvimento");
-    return;
-}
-void verificar_valor(){
-    printf(" Função de Verficar valor em desenvolvimento");
-    return;
-}
-void entender_como_funciona(){
-    printf(" Função de entender jogos em desenvolvimento");
-    return;
-}
-void sortear_jogo(){
-    printf(" Função de sortear jogo em desenvolvimento");
-    return;
-}
-
 
 void direcionamento_de_menu( struct usuarios usuario[]){
     int opcao;
@@ -78,18 +47,16 @@ void direcionamento_de_menu( struct usuarios usuario[]){
         switch (opcao)
         {
             case 1:
-                fazer_novo_jogo();
+                fazer_novo_jogo(usuario);
                 break;
             case 2:
-                criar_novo_usuario(usuario);
+                cadastra_novo_usuario(usuario);
                 break;
             case 3:
-                verificar_jogos();
+                verificar_jogos(usuario);
                 break;
             case 4:
-                verificar_valor();
-                break;
-            case 5:
+                verificar_valor(usuario);
                 entender_como_funciona();
                 break;
             case 6:
@@ -101,6 +68,18 @@ void direcionamento_de_menu( struct usuarios usuario[]){
         }} while (opcao != 0); 
 
 }
+
+void entender_como_funciona(){
+    printf(" Função de entender jogos em desenvolvimento");
+    return;
+}
+void sortear_jogo(){
+    printf(" Função de sortear jogo em desenvolvimento");
+    return;
+}
+
+
+
 
 
 
