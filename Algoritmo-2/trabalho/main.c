@@ -10,23 +10,22 @@
 
 // PROTÓTIPOS: Aqui eu estou fazendo uma declaração antecipada ao compilador sobre as próximas funçãos, que ainda não foram definidas, mas serão
 void entender_como_funciona();
-void sortear_jogo();
 void menu();
 void direcionamento_de_menu(struct usuarios usuario[]);
 
 
 // FUNÇÃO DE MENU: Está função vai ser responsável por delimitar, e facilitar tudo o que o usuário vai fazer e redirecionar ele para o que ele quiser
 void menu(){
-    printf("----------------------------------------\n");
-    printf("|              Voce deseja:            |\n");
-    printf("----------------------------------------\n");
-    printf("| 1- Fazer um novo jogo                |\n");
-    printf("| 2- Criar novo jogador                |\n");
-    printf("| 3- Verificar seus cartoes de jogos   |\n");
-    printf("| 4- Sortear MegaSena                  |\n");
-    printf("| 5- Verificar valor da MegaSena       |\n");
-    printf("| 6- Entender como funciona o jogo     |\n");
-    printf("----------------------------------------\n");    
+    printf("==============================================\n");
+    printf("|              Voce deseja:                  |\n");
+    printf("==============================================\n");
+    printf("|   >>  1- Criar novo jogador                |\n");
+    printf("|   >>  2- Fazer um novo jogo                |\n");
+    printf("|   >>  3- Verificar seus cartoes de jogos   |\n");
+    printf("|   >>  4- Verificar valor da MegaSena       |\n");
+    printf("|   >>  5- Sortear MegaSena                  |\n");
+    printf("|   >>  6- Entender como funciona o jogo     |\n");
+    printf("==============================================\n");    
 }
 
 void direcionamento_de_menu( struct usuarios usuario[]){
@@ -47,20 +46,22 @@ void direcionamento_de_menu( struct usuarios usuario[]){
         switch (opcao)
         {
             case 1:
-                fazer_novo_jogo(usuario);
+                cadastra_novo_usuario(usuario);
                 break;
             case 2:
-                cadastra_novo_usuario(usuario);
+                fazer_novo_jogo(usuario);
                 break;
             case 3:
                 verificar_jogos(usuario);
                 break;
             case 4:
                 verificar_valor(usuario);
-                entender_como_funciona();
+                break;
+            case 5:
+                sortear_numeros();
                 break;
             case 6:
-                sortear_jogo();
+                entender_como_funciona();
                 break;
             
             default:

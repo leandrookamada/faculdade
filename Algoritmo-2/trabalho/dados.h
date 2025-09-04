@@ -5,7 +5,7 @@
 #include<stdlib.h>
 
 
-#define MAXIMO_DE_USUARIOS 8
+#define MAXIMO_DE_USUARIOS 5
 
 struct usuarios{
     char nome[50];
@@ -15,6 +15,9 @@ struct usuarios{
 
     // Eu precisei criar uma variável de quantidade para saber quantos foram feitos, e calcular depois 
     int quantidade;
+
+    // Eu precisei criar isso para armazenar o número de acertos
+    int acerto[];
 };
 
 

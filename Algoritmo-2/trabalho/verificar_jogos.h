@@ -35,7 +35,7 @@ void verificar_usuario_especifico(struct usuarios ListaDeUsuarios[]){
         //for para mostrar o jogos
         for(int i = 0; i < ListaDeUsuarios[cpf_encontrado].quantidade; i++){
             printf("\n  - Jogo %d:", i + 1);
-            for(int j = 0; j < 16; j++){
+            for(int j = 0; j < 12; j++){
                 printf(" %d", ListaDeUsuarios[cpf_encontrado].jogo[i][j]);
             }
             printf("\n");
@@ -53,7 +53,7 @@ void verificar_todos_os_jogos(struct usuarios ListaDeUsuarios[]){
              printf("  >> Jogos de %s (CPF: %s):\n", ListaDeUsuarios[i].nome, ListaDeUsuarios[i].cpf);
             for(int j = 0; j < ListaDeUsuarios[i].quantidade; j++){
                 printf("\t- Jogo %d:", j + 1);
-                for(int h = 0; h < 16; h++){
+                for(int h = 0; h < 12; h++){
                     printf(" %d", ListaDeUsuarios[i].jogo[j][h]);
                 }
             printf("\n");

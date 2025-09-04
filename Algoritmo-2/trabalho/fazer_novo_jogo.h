@@ -64,12 +64,18 @@ void fazer_novo_jogo(struct usuarios ListaDeUsuario[]){
         int quantidade_por_jogo;
 
         for(int i = 0; i < quantidade; i++){
-            printf("\n  >> Jogo %d: quantos números você deseja colocar? (1 a 16): ", i+1);
-            scanf("%d", &quantidade_por_jogo);
+            printf("\n  >> Jogo %d: quantos números você deseja colocar? (6 a 12): ", i+1);
+            
+            do {
+                scanf("%d", &quantidade_por_jogo);
+                int c; 
+                while((c = getchar()) != '\n' && c != EOF);
+                if(quantidade_por_jogo < 6 || quantidade_por_jogo > 12){
+                    printf("Por favor, insira um número válido.\n");
+                }
+            } while (quantidade_por_jogo < 6 || quantidade_por_jogo > 12);
 
-            int c; 
-            while((c = getchar()) != '\n' && c != EOF);
-
+            
 
             for(int j = 0; j < quantidade_por_jogo; j++){
                 printf("     - Insira o %dº número: ", j+1);
