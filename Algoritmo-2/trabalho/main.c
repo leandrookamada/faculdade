@@ -7,11 +7,12 @@
 #include"fazer_novo_jogo.h"
 #include"verificar_jogos.h"
 #include"verificar_valor.h"
+#include"sortear_numeros.h"
 
 // PROTÓTIPOS: Aqui eu estou fazendo uma declaração antecipada ao compilador sobre as próximas funçãos, que ainda não foram definidas, mas serão
 void entender_como_funciona();
 void menu();
-void direcionamento_de_menu(struct usuarios usuario[]);
+int direcionamento_de_menu(struct usuarios usuario[], int numero_sorteado[6]);
 
 
 // FUNÇÃO DE MENU: Está função vai ser responsável por delimitar, e facilitar tudo o que o usuário vai fazer e redirecionar ele para o que ele quiser
@@ -28,7 +29,7 @@ void menu(){
     printf("==============================================\n");    
 }
 
-void direcionamento_de_menu( struct usuarios usuario[]){
+int direcionamento_de_menu( struct usuarios usuario[], int numero_sorteado[6]){
     int opcao;
     
     do { 
@@ -58,7 +59,7 @@ void direcionamento_de_menu( struct usuarios usuario[]){
                 verificar_valor(usuario);
                 break;
             case 5:
-                sortear_numeros();
+                sortear_numero(numero_sorteado);
                 break;
             case 6:
                 entender_como_funciona();
@@ -67,7 +68,7 @@ void direcionamento_de_menu( struct usuarios usuario[]){
             default:
                 break;
         }} while (opcao != 0); 
-
+return 0;
 }
 
 void entender_como_funciona(){
@@ -86,7 +87,8 @@ void sortear_jogo(){
 
 
 int main(){
+    int numeros_sorteados[6];
     struct usuarios lista_de_usuarios[8];
-    direcionamento_de_menu(lista_de_usuarios);
+    direcionamento_de_menu(lista_de_usuarios, numeros_sorteados);
     return 0;
 }

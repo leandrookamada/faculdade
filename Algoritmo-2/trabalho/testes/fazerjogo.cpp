@@ -3,17 +3,27 @@
 #include<string.h>
 #include<time.h>
 
-#include"dados.h"
+#define MAXIMO_DE_USUARIOS 5
 
-
-// Para fazer essa área eu encontrei muita dificuldade, a melhor saida que eu encontri foi buscar o usuário pelo cpf, 
-// por isso eu precisei criar uma area apenas para buscar o cpf 
+struct usuarios{
+    char nome[50];
+    char cpf[12];
+    int jogo[4][16];
+    int existente;
+    int quantidade;
+    int acerto[5];
+};
+void surpresinha(struct usuarios ListaDeUsuario[],int cpf_encontrado, int local_atual);
+void fazer_jogo_na_mao(struct usuarios ListaDeUsuario[], int cpf_encontrado, int local_atual, int quantidade, int quantidade_por_jogo);
 
 void fazer_novo_jogo(struct usuarios ListaDeUsuario[]){
-            // essa variável eu vou usar para pegar o cpf que ele deseja fazer o jogo
-            char busca_cpf[12];
-            // essa variável eu vou usar para saber quemm que é o usuário que ele quer fazer o jogo
-            int cpf_encontrado = -1; 
+    int local_atual = 0;
+    int quantidade_por_jogo;
+    char busca_cpf[12];
+    int cpf_encontrado = -1;
+    int quantidade; 
+    //          AREA PARA ACHAR O USUÁRIO E PASSAR A POSSIÇÃO QUE ELE SE ENCONTRA
+            
 
             printf("\n====================================================================================================\n");
             printf("|                                  FAZER NOVO JOGO                                                 |\n");
@@ -23,35 +33,30 @@ void fazer_novo_jogo(struct usuarios ListaDeUsuario[]){
             printf("\n  Para isso, precisamos do CPF do jogador.\n");
             printf("  >> Insira o CPF: ");
             fgets(busca_cpf, 12, stdin);
-            //retirando o "\n"
             busca_cpf[strcspn(busca_cpf, "\n")] = 0;
 
-            // for para procurar usuário, nos usuários cadastrado
             for(int i = 0; i < MAXIMO_DE_USUARIOS; i++){
 
-                // condição para encontrar usuário cadastrado
                 if(ListaDeUsuario[i].existente == 1 && strcmp(ListaDeUsuario[i].cpf , busca_cpf) == 0){
                     cpf_encontrado = i;
                     break;
                 }
             }
 
-    // parte de fazer o jogo de fato
+    //          SE ELE ACHAR O USUÁRIO, ELE VAI CONTINUAR O CÓDIGO.
     if(cpf_encontrado != -1){
-        // para mostrar o nome dele eu usei a variável "cpf_encontrado", que armazena o indice dele
         printf("\n----------------------------------------------------------------------------------------------------\n");
         printf("  Show de bola %s, chegou a hora de mudar a sua vida na Mega!\n", ListaDeUsuario[cpf_encontrado].nome);
         printf("----------------------------------------------------------------------------------------------------\n");
 
-        // variável para salvar a quantidadede de jogo
-        int quantidade; 
-        int local_atual = 0;
+
+        //          SALVANDO A QUANTIDADE DE JOGOS
+        
         printf("\n  >> Quantos jogos você deseja fazer? (1 a 4): ");
         printf("\n  >> Lembre-se que é permitido fazer no máximo 4 jogos");
 
 
-        // do para verificar se a quantidade de jogos está dentro do permitido.
-        do {
+        do { //         VERIFICANDO A QUANTIDADE DE JOGO.
             scanf("%d", &quantidade);
             int c; 
             while((c = getchar()) != '\n' && c != EOF);
@@ -62,34 +67,31 @@ void fazer_novo_jogo(struct usuarios ListaDeUsuario[]){
         } while (quantidade > 4 || quantidade < 1);
 
         printf("\n Perfeito, %s!!, vamos fazer os jogos.\n", ListaDeUsuario[cpf_encontrado].nome);
-
         for(int i = 0; i < quantidade; i++){
-            int opcao;
-            printf("\n Você deseja\n");
-            printf("\n      >> 1)Escolher cada um dos seus números da sorte?\n");
-            printf("\n      >> 2)Supresinha(A própria máquina gera um número)\n");
-            scanf("%d", &opcao);
+                int opcao;
+                printf("\n Você deseja\n");
+                printf("\n      >> 1)Escolher cada um dos seus números da sorte?\n");
+                printf("\n      >> 2)Supresinha(A própria máquina gera um número)\n");
+                scanf("%d", &opcao);
+                int c; 
+                while((c = getchar()) !='\n' && c != EOF);
 
-            int c; 
-            while((c = getchar()) !='\n' && c != EOF);
-            
-            switch (opcao)
-            {
+                switch (opcao)
+                {
                 case 1:
-                    surpresinha(ListaDeUsuario[cpf_encontrado], cpf_encontrado);
+                // O MEU ERRO FOI QUE EU ESTAVA PASSANDO UM ARRAY, AO INVÉS DE PASSAR ELE INTEIRO. 
+                    surpresinha(ListaDeUsuario, cpf_encontrado, local_atual);
                     break;
                 case 2:
-                    fazer_jogo_na_mao(ListaDeUsuario, cpf_encontrado, local_atual);
+                    surpresinha(ListaDeUsuario, cpf_encontrado, local_atual);
                     break;
                 
                 default:
-                printf("Insira um valor válido.");
                     break;
-            }
-            local_atual++;
-        }
+                }
+                }
 
-       
+        
         ListaDeUsuario[cpf_encontrado].quantidade = quantidade;
         printf("\n====================================================================================================\n");
         printf("  Perfeito %s, finalizamos por aqui. O que deseja fazer agora?\n", ListaDeUsuario[cpf_encontrado].nome);
@@ -101,7 +103,7 @@ void fazer_novo_jogo(struct usuarios ListaDeUsuario[]){
 
 }
 
-void supresinha(struct usuarios ListaDeUsuario[],int cpf_encontrado, int local_atual){
+void surpresinha(struct usuarios ListaDeUsuario[],int cpf_encontrado, int local_atual){
     srand(time(NULL));
 
     for(int i = 0; i < 6; i++){
@@ -109,9 +111,8 @@ void supresinha(struct usuarios ListaDeUsuario[],int cpf_encontrado, int local_a
     }
     
 }
-void fazer_jogo_na_mao(struct usuarios ListaDeUsuario[], int cpf_encontrado, int local_atual){
-        int quantidade_por_jogo;
-
+void fazer_jogo_na_mao(struct usuarios ListaDeUsuario[], int cpf_encontrado, int local_atual, int quantidade, int quantidade_por_jogo){
+    for(local_atual = 0; local_atual < quantidade; local_atual++){
             printf("\n  >> Jogo %d: quantos números você deseja colocar? (6 a 12): ", local_atual+1);
             
             do {
@@ -131,4 +132,5 @@ void fazer_jogo_na_mao(struct usuarios ListaDeUsuario[], int cpf_encontrado, int
             }
              printf("\n  Pronto, vamos para o próximo jogo.\n");
 
+        }
 }

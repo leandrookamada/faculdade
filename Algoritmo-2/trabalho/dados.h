@@ -17,7 +17,7 @@ struct usuarios{
     int quantidade;
 
     // Eu precisei criar isso para armazenar o número de acertos
-    int acerto[];
+    int acerto[5];
 };
 
 
