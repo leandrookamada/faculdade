@@ -8,6 +8,7 @@
 #include"verificar_jogos.h"
 #include"verificar_valor.h"
 #include"sortear_numeros.h"
+#include"exibe_ganhadores.h"
 
 // PROTÓTIPOS: Aqui eu estou fazendo uma declaração antecipada ao compilador sobre as próximas funçãos, que ainda não foram definidas, mas serão
 void entender_como_funciona();
