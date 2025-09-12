@@ -60,9 +60,12 @@ int direcionamento_de_menu( struct usuarios usuario[], int numero_sorteado[6]){
                 verificar_valor(usuario);
                 break;
             case 5:
-                sortear_numero(numero_sorteado);
+                sortear_numero(usuario);
                 break;
             case 6:
+                exibe_ganhadores();
+                break;
+            case 7:
                 entender_como_funciona();
                 break;
             

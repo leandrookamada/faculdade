@@ -18,6 +18,8 @@ struct usuarios{
 
     // Eu precisei criar isso para armazenar o número de acertos
     int acerto[5];
+
+    int classe;
 };
 
 

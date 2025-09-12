@@ -4,7 +4,8 @@
 #include<time.h>
 
 #include"dados.h"
-
+void supresinha(struct usuarios ListaDeUsuario[],int cpf_encontrado, int local_atual);
+void fazer_jogo_na_mao(struct usuarios ListaDeUsuario[], int cpf_encontrado, int local_atual);
 
 // Para fazer essa área eu encontrei muita dificuldade, a melhor saida que eu encontri foi buscar o usuário pelo cpf, 
 // por isso eu precisei criar uma area apenas para buscar o cpf 
@@ -47,7 +48,7 @@ void fazer_novo_jogo(struct usuarios ListaDeUsuario[]){
         int quantidade; 
         int local_atual = 0;
         printf("\n  >> Quantos jogos você deseja fazer? (1 a 4): ");
-        printf("\n  >> Lembre-se que é permitido fazer no máximo 4 jogos");
+        printf("\n  >> Lembre-se que é permitido fazer no máximo 4 jogos ");
 
 
         // do para verificar se a quantidade de jogos está dentro do permitido.
@@ -76,11 +77,11 @@ void fazer_novo_jogo(struct usuarios ListaDeUsuario[]){
             switch (opcao)
             {
                 case 1:
-                    surpresinha(ListaDeUsuario[cpf_encontrado], cpf_encontrado);
-                    break;
+                fazer_jogo_na_mao(ListaDeUsuario, cpf_encontrado, local_atual);
+                break;
                 case 2:
-                    fazer_jogo_na_mao(ListaDeUsuario, cpf_encontrado, local_atual);
-                    break;
+                supresinha(ListaDeUsuario, cpf_encontrado, local_atual);
+                break;
                 
                 default:
                 printf("Insira um valor válido.");
@@ -91,8 +92,14 @@ void fazer_novo_jogo(struct usuarios ListaDeUsuario[]){
 
        
         ListaDeUsuario[cpf_encontrado].quantidade = quantidade;
-        printf("\n====================================================================================================\n");
-        printf("  Perfeito %s, finalizamos por aqui. O que deseja fazer agora?\n", ListaDeUsuario[cpf_encontrado].nome);
+        printf("\n===================================================================================================\n");
+        printf("  Perfeito %s, finalizamos por aqui. Os catôes feitos foram:\n", ListaDeUsuario[cpf_encontrado].nome);
+        for(int i = 0; i < ListaDeUsuario[cpf_encontrado].quantidade; i++){
+            printf("    >> %dº Cartão:", i+1);
+            for(int j = 0; j < 12; j++ ){
+                printf("        >> %d \n",ListaDeUsuario[cpf_encontrado].jogo[i][j] );
+            }
+        }
         printf("====================================================================================================\n");
     
     } else { 
@@ -106,6 +113,10 @@ void supresinha(struct usuarios ListaDeUsuario[],int cpf_encontrado, int local_a
 
     for(int i = 0; i < 6; i++){
        ListaDeUsuario[cpf_encontrado].jogo[local_atual][i] = (rand()%59) + 1;
+    }
+    printf("        >>Os números foram: ");
+    for(int i = 0; i < 6; i++){
+        printf("        >>%d \n", ListaDeUsuario[cpf_encontrado].jogo[local_atual][i]);
     }
     
 }
