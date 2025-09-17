@@ -1,3 +1,9 @@
+// Aqui temos a função para fazer um novo jogo 
+// Nessa função usamos o cpf para encontrar o usuário
+// Depois perguntamos quantos jogos ele quer fazer, e se ele quer escolher os números ou
+// se ele quer a supresinha
+// Depois mostramos os jogos feitos
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>

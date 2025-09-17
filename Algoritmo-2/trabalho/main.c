@@ -1,3 +1,13 @@
+// AQUI TEMOS O ARQUIVO MAIN, QUE VAI SER O ARQUIVO PRINCIPAL DO PROJETO, ONDE VAI TER A FUNÇÃO MAIN, E VAI SER RESPONSÁVEL POR CHAMAR TODAS AS OUTRAS FUNÇÕES
+// ELA VAI SER RESPONSÁVEL POR CHAMAR O MENU, E REDIRECIONAR O USUÁRIO PARA O QUE ELE QUISER FAZER
+
+
+// PROBLEMAS:
+// 1- Não estou conseguindo passar o valor dos números sorteados para o arquivo "exibe_ganhadores.h",
+// 2- Falta criar a função que calcula os acertos e mostra se o usuário ganhou algo ou não.
+// 3- Falta criar a função que mostra o valor arrecadado e como ele é dividido entre os ganhadores.
+// 4- Falta criar a função que explica como funciona o jogo.
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -83,12 +93,6 @@ void sortear_jogo(){
     printf(" Função de sortear jogo em desenvolvimento");
     return;
 }
-
-
-
-
-
-
 
 int main(){
     int numeros_sorteados[6];

@@ -1,3 +1,6 @@
+// essa é a função que vai sortear os números, tanto de forma automática quanto manual
+// um problema que estou tendo e o de salvar esse valor para verificar no arquivo "exibe_ganhadores.h"
+
 #include<stdio.h> 
 #include<stdlib.h>
 #include<time.h>

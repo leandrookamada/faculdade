@@ -1,3 +1,6 @@
+// Aqui temos a função para verificar os jogos feitos e mostrar eles para o usuário
+
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>

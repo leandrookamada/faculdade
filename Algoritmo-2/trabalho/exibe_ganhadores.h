@@ -1,3 +1,7 @@
+// aqui temos as funções para mostrar se algum jogador ganhou algo
+// e quantos acertos cada um teve. Porém ainda não está completo
+// eu preciso criar uma função que calcule os acertos, e mostre se ele acertou uma quadra, quina ou sena.
+
 #include<stdio.h> 
 #include<stdio.h>
 #include"dados.h"
@@ -75,5 +79,10 @@ void classe_de_ganhos(struct usuarios ListaDeUsuarios){
             }
         }
     }
-    for(int i = 0; i < )
+    for(int i = 0; i < MAXIMO_DE_USUARIOS;i++){
+        if(ListaDeUsuarios.existente == 1 && ListaDeUsuarios.quantidade >= 1){
+            printf("O usuário %s, ", ListaDeUsuarios.nome);
+            printf("teve um acerto %d de números ",  *ListaDeUsuarios.acerto);
+        }
+    }
 }

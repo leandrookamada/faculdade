@@ -1,3 +1,6 @@
+// aqui temos a função para verificar o valor arrecadado, //
+// obs, cada jogo vale R$ 1.000,00 , precisamos criar uma função para pegar esse valor e colocar nas porceentagens de cada ganhar
+
 #include<stdio.h>
 #include<stdlib.h>
 #include"dados.h"
