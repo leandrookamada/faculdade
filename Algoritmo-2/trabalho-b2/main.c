@@ -1,5 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h> 
+#include <stdlib.h>
+ 
+#include "dados.h"
+
+
 
 void Menu(void Cadastrar_Aluno(), void Exibir_Alunos_E_Media(), void Exibir_Alunos_Aprovados_E_Medias(), void Exibir_Alunos_Reprovados_E_Medias(), void Exibir_Media_de_Aluno_Por_Matricula(), void Exibir_Alunos_e_Medias_por_ordem_Crescente_das_Medias(), void Exibir_Alunos_e_Medias_por_ordem_Crescente_das_Matricula()){
     int opcao;
