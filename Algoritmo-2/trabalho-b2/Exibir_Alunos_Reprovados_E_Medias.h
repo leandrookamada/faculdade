@@ -21,7 +21,7 @@ void Exibir_Alunos_Reprovados_E_Medias(void){
     }
 
     printf("\n==============================================================================");
-    printf("\n=================== Lista de medias de alunos Rerovados ======================");
+    printf("\n=================== Lista de medias de alunos Reprovados ======================");
     printf("\n==============================================================================");
 
     while(fgets(linha, sizeof(linha), dt) != NULL){
