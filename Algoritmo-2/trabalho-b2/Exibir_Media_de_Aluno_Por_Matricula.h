@@ -50,6 +50,7 @@ void Exibir_Media_de_Aluno_Por_Matricula(){
         printf("\n======================== Nenhum aluno Encontrado =============================");
         printf("\n==============================================================================");
     } 
+    fclose(dt);
 }
 
 #endif
