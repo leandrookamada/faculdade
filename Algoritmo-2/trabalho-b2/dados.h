@@ -3,6 +3,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 
 typedef struct {
     int Matricula;
@@ -11,6 +12,7 @@ typedef struct {
     float Nota3;
     float Nota4;
     float Media;
+    char Estado[20];
 } Aluno;
 
 #endif // DADOS_H

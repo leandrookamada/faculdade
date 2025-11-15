@@ -3,10 +3,12 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 #include "dados.h"
 #include "Calcula_media.h"
 #include "Verifica_dt.h"
+#include "Verifica_aprovacao.h"
 
 void Cadastrar_Aluno(const char *data){
     Aluno novo_aluno;
@@ -44,15 +46,17 @@ void Cadastrar_Aluno(const char *data){
     }
     
     novo_aluno.Media = Calcular_a_Media(novo_aluno.Nota1, novo_aluno.Nota2, novo_aluno.Nota3, novo_aluno.Nota4);
+
+    strcpy(novo_aluno.Estado, Verifica_aprovacao(novo_aluno.Media));
     
-       // Formato estruturado mais legível
-    fprintf(dt, "MATRICULA:%d|NOTA1:%.2f|NOTA2:%.2f|NOTA3:%.2f|NOTA4:%.2f|MEDIA:%.2f\n", 
+    fprintf(dt, "MATRICULA:%d|NOTA1:%.2f|NOTA2:%.2f|NOTA3:%.2f|NOTA4:%.2f|MEDIA:%.2f|ESTADO:%s\n", 
             novo_aluno.Matricula, 
             novo_aluno.Nota1, 
             novo_aluno.Nota2, 
             novo_aluno.Nota3, 
             novo_aluno.Nota4, 
-            novo_aluno.Media);
+            novo_aluno.Media,
+            novo_aluno.Estado);
     
     fclose(dt);
     printf("\n==============================================================================");
@@ -63,6 +67,7 @@ void Cadastrar_Aluno(const char *data){
     printf("\n    == > 3º Nota: %.2f;", novo_aluno.Nota3);
     printf("\n    == > 4º Nota: %.2f;", novo_aluno.Nota4);
     printf("\n    == > Media: %.2f;", novo_aluno.Media);
+    printf("\n    == > Estado: %s;", novo_aluno.Estado);
     printf("\n    == > Dados salvos em %s", data);
     printf("\n==============================================================================");
     printf("\n==============================================================================");
