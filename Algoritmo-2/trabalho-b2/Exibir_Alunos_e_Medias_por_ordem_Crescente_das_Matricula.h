@@ -64,6 +64,7 @@ void Exibir_Alunos_e_Medias_por_ordem_Crescente_das_Matricula(){
         printf("\n==============================================================================");
         printf("\n    == > Matrícula: %d", alunos[i].Matricula);
         printf("\n    == > Média: %.2f", alunos[i].Media);
+        printf("\n    == > Estado: %s", alunos[i].Estado);
     }
     printf("\n==============================================================================");
 
