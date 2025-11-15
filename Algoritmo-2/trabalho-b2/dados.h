@@ -10,6 +10,7 @@ typedef struct {
     float Nota2;
     float Nota3;
     float Nota4;
+    float Media;
 } Aluno;
 
 #endif // DADOS_H
