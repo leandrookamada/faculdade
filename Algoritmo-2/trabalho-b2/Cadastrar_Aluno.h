@@ -6,6 +6,7 @@
 
 #include "dados.h"
 #include "Calcula_media.h"
+#include "Verifica_dt.h"
 
 void Cadastrar_Aluno(const char *data){
     Aluno novo_aluno;
@@ -38,10 +39,7 @@ void Cadastrar_Aluno(const char *data){
 
     dt = fopen(data, "a"); 
     
-    if(dt == NULL){
-        printf("\n==============================================================================");
-        printf("\n==================== ERRO: Não foi possível abrir o arquivo ==================");
-        printf("\n==============================================================================");
+    if(Verifica_dt("data.txt")){} else {
         return;
     }
     
