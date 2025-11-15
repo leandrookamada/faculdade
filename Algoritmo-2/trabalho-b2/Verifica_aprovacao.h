@@ -6,9 +6,9 @@
 
 const char* Verifica_aprovacao( float Media){
     if (Media >= 6){
-        return "ALUNO APROVADO" ;
+        return "ALUNO_APROVADO" ;
     } else {
-        return  "ALUNO REPROVADO";
+        return  "ALUNO_REPROVADO";
     }
     
 }
