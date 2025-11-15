@@ -47,12 +47,14 @@ void Cadastrar_Aluno(const char *data){
     
     novo_aluno.Media = Calcular_a_Media(novo_aluno.Nota1, novo_aluno.Nota2, novo_aluno.Nota3, novo_aluno.Nota4);
     
-    fprintf(dt, "\n    == > Matrícula: %d;", novo_aluno.Matricula);
-    fprintf(dt, "\n    == > 1º Nota: %.2f;", novo_aluno.Nota1);
-    fprintf(dt, "\n    == > 2º Nota: %.2f;", novo_aluno.Nota2);
-    fprintf(dt, "\n    == > 3º Nota: %.2f;", novo_aluno.Nota3);
-    fprintf(dt, "\n    == > 4º Nota: %.2f;", novo_aluno.Nota4);
-    fprintf(dt, "\n    == > Media: %.2f;", novo_aluno.Media);
+       // Formato estruturado mais legível
+    fprintf(dt, "MATRICULA:%d|NOTA1:%.2f|NOTA2:%.2f|NOTA3:%.2f|NOTA4:%.2f|MEDIA:%.2f\n", 
+            novo_aluno.Matricula, 
+            novo_aluno.Nota1, 
+            novo_aluno.Nota2, 
+            novo_aluno.Nota3, 
+            novo_aluno.Nota4, 
+            novo_aluno.Media);
     
     fclose(dt);
     printf("\n==============================================================================");
