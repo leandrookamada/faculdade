@@ -12,7 +12,7 @@
 
 
 
-void Menu(){
+int Menu(){
     int opcao;
     printf("\n==============================================================================");
     printf("\n==================== Programa de gerenciamento de Notas ======================");
@@ -28,53 +28,58 @@ void Menu(){
     printf("\n==============================================================================");
     printf("\n    == > ");
     scanf("%d", &opcao);
-    
-    switch(opcao){
-        case 1:
-            Cadastrar_Aluno("data.txt");
-            break;
-
-        case 2:
-            Exibir_Alunos_E_Media();
-            break;
-
-        case 3:
-            Exibir_Alunos_Aprovados_E_Medias();
-            break;
-
-        case 4:
-            Exibir_Alunos_Reprovados_E_Medias();
-            break;
-
-        case 5:
-            Exibir_Media_de_Aluno_Por_Matricula();
-            break;
-
-        case 6:
-            Exibir_Alunos_e_Medias_por_ordem_Crescente_das_Medias();
-            break;
-
-        case 7:
-            Exibir_Alunos_e_Medias_por_ordem_Crescente_das_Matricula();
-            break;
-
-        case 8:
-            printf("==============================================================================");
-            printf("============================== Saindo do Programa ============================");
-            printf("==============================================================================");
-            printf("    == > Obrigado por participar ;) ");
-            printf("    == > Leandro Nóbrega Lobato Kamada ");
-            break;
-
-        default:
-            printf("==============================================================================");
-            printf("====================== Opção Invalida, tente novamente =======================");
-            printf("==============================================================================");
-            break;
-    }
+    return opcao;
 }
 
 int main(){
-    Menu();
+    int opcao;
+    do {
+        opcao = Menu();
+        
+        switch(opcao){
+            case 1:
+                Cadastrar_Aluno("data.txt");
+                break;
+                
+            case 2:
+                Exibir_Alunos_E_Media();
+                break;
+
+            case 3:
+                Exibir_Alunos_Aprovados_E_Medias();
+                break;
+
+            case 4:
+                Exibir_Alunos_Reprovados_E_Medias();
+                break;
+
+            case 5:
+                Exibir_Media_de_Aluno_Por_Matricula();
+                break;
+
+            case 6:
+                Exibir_Alunos_e_Medias_por_ordem_Crescente_das_Medias();
+                break;
+
+            case 7:
+                Exibir_Alunos_e_Medias_por_ordem_Crescente_das_Matricula();
+                break;
+
+            case 8:
+                printf("\n==============================================================================");
+                printf("\n============================== Saindo do Programa ============================");
+                printf("\n==============================================================================");
+                printf("\n    == > Obrigado por participar ;) ");
+                printf("\n    == > Leandro Nóbrega Lobato Kamada \n");
+                break;
+
+            default:
+                printf("\n==============================================================================");
+                printf("\n====================== Opção Invalida, tente novamente =======================");
+                printf("\n==============================================================================");
+                break;
+        }
+    } while (opcao != 8);
+
     return 0;
 }

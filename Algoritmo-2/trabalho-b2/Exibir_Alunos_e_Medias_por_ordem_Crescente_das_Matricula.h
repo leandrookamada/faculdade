@@ -8,13 +8,6 @@
 #include "dados.h"
 #include "Verifica_dt.h"
 
-int compararPorMatricula(const void *a, const void *b) {
-    Aluno *alunoA = (Aluno *)a;
-    Aluno *alunoB = (Aluno *)b;
-
-    return (alunoA->Matricula - alunoB->Matricula);
-}
-
 void Exibir_Alunos_e_Medias_por_ordem_Crescente_das_Matricula(){
     FILE *dt;
     char linha[500];
@@ -56,7 +49,17 @@ void Exibir_Alunos_e_Medias_por_ordem_Crescente_das_Matricula(){
         i++;
     }
 
-    qsort(alunos, contador, sizeof(Aluno), compararPorMatricula);
+    for (i = 0; i < contador - 1; i++) {
+        for (int j = 0; j < contador - i - 1; j++) {
+            // Compara a matrícula do aluno atual com a do próximo
+            if (alunos[j].Matricula > alunos[j + 1].Matricula) {
+                // Se estiverem fora de ordem, troca-os de lugar
+                Aluno temp = alunos[j];
+                alunos[j] = alunos[j + 1];
+                alunos[j + 1] = temp;
+            }
+        }
+    }
 
     printf("\n==============================================================================");
     printf("\n============== Alunos e Médias em Ordem Crescente de Matrícula ===============");
@@ -68,6 +71,7 @@ void Exibir_Alunos_e_Medias_por_ordem_Crescente_das_Matricula(){
     }
     printf("\n==============================================================================");
 
+    free(alunos);
     fclose(dt);
 }
 #endif
